@@ -6,7 +6,7 @@ module.exports = (function() {
 
   var _digit = function(number) {
     var res = parseInt(number, 10);
-    return (res === res) ? res : 0; // reject NaN values.
+    return (!isNaN(res) & res < 1000)  ? res : 0;
   };
 
   var _digits = function(numbers) {
