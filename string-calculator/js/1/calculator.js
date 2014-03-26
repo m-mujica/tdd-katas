@@ -17,7 +17,14 @@ module.exports = (function() {
   };
 
   var _delimiter = function(numbers) {
-    return (numbers.substr(0, 2) === '//') ? numbers.charAt(2) : ',';
+    if (numbers.substr(0, 2) !== '//') return ',';
+
+    if (numbers.charAt(2) === '[') {
+      var endPos = numbers.indexOf(']');
+      return numbers.substring(3, endPos);
+    }
+
+    return numbers.charAt(2);
   };
 
   var _negatives = function(digits) {

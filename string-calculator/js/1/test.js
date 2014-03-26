@@ -82,5 +82,9 @@ describe('String Calculator', function() {
     it('ignores numbers greater than 1000', function() {
       assert.strictEqual(2, c.add('2,1000'));
     });
+
+    it('supports delimiters of any length', function() {
+      assert.strictEqual(6, c.add('//[***]\n1***2***3'));
+    });
   });
 });
